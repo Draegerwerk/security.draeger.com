@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --draeger-background: white;
+    --draeger-text-color: #002766;
+  }
+  html { scrollbar-gutter: stable; }
+  body { overflow-wrap: anywhere; }
+  :focus-visible { outline: 3px solid #0078cc; outline-offset: 4px; }
+  [id] { scroll-margin-top: 1.5rem; }
+  footer a:hover { text-decoration: underline; }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-content-block px-3 md:px-6 lg:px-9;
+  }
+  .nav-link {
+    @apply relative inline-flex items-center justify-center text-links-header;
+  }
+  .nav-link::before {
+    content: "";
+    @apply absolute -bottom-2 h-1 w-0 bg-draeger-dark-blue-700 transition-all;
+  }
+  .nav-link:hover::before,
+  .nav-link:focus-visible::before,
+  .nav-link[aria-current="page"]::before {
+    @apply w-16;
+  }
+  .nav-link:focus-visible {
+    @apply outline outline-1 outline-border-accent;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link::before { transition: none; }
+  }
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only absolute left-3 top-3 z-50 bg-surface-primary p-4 text-interactions-primary;
+  }
+  .markdown-content {
+    @apply text-lg leading-relaxed;
+  }
+  .markdown-content h1 {
+    @apply mb-8 font-display text-[2.125rem] font-medium leading-tight md:text-[2.5rem] xl:text-[3.1rem];
+  }
+  .markdown-content h1::after {
+    content: "";
+    @apply mt-5 block h-1 w-10 bg-surface-brand;
+  }
+  .markdown-content h2 {
+    @apply mb-4 mt-12 font-display text-[1.875rem] font-medium leading-tight;
+  }
+  .markdown-content h3 {
+    @apply mb-4 mt-8 font-display text-2xl font-medium leading-snug;
+  }
+  .markdown-content h4, .markdown-content h5, .markdown-content h6 {
+    @apply mb-3 mt-6 font-semibold;
+  }
+  .markdown-content p { @apply mb-4; }
+  .markdown-content a { @apply text-interactions-primary underline underline-offset-4 hover:text-interactions-primary-hover; }
+  .markdown-content ul { @apply my-4 list-disc pl-6; }
+  .markdown-content ol { @apply my-4 list-decimal pl-6; }
+  .markdown-content li { @apply my-2 pl-1; }
+  .markdown-content li > p { @apply my-2; }
+  .markdown-content strong { @apply font-semibold; }
+  .markdown-content hr { @apply my-8 border-border-separator; }
+  .markdown-content blockquote { @apply my-6 border-l-4 border-border-accent pl-5 text-text-secondary; }
+  .markdown-content pre { @apply my-4 overflow-x-auto whitespace-pre rounded-sm bg-surface-tertiary p-4 text-sm; }
+  .markdown-content :not(pre) > code { @apply rounded-sm bg-surface-tertiary px-1; }
+  .markdown-content details { @apply my-6 min-w-0 rounded-sm border border-border-separator p-4; }
+  .markdown-content summary { @apply cursor-pointer font-semibold; }
+  .markdown-content img { @apply my-6 h-auto max-w-full; }
+  .markdown-content table { @apply my-6 block max-w-full overflow-x-auto border-collapse text-base; }
+  .markdown-content th, .markdown-content td { @apply border border-border-separator p-3 text-left; }
+  .markdown-content th { @apply bg-surface-tertiary font-semibold; }
+}

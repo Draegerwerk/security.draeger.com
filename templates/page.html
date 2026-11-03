@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="{{language}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{description}}">
+  <title>{{pageTitle}} | {{siteTitle}}</title>
+  <link rel="stylesheet" href="assets/fonts/pangea.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body id="top" class="font-text text-text-primary bg-surface-primary">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="page-shell py-7">
+    <div class="flex flex-wrap items-center gap-x-8 gap-y-5">
+      <a href="https://draeger.com/" aria-label="Dräger home" class="block w-[6.5rem] shrink-0 fill-draeger-dark-blue-700">
+        {{logo}}
+      </a>
+      <nav aria-label="Main navigation" class="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-3">
+        {{navigation}}
+      </nav>
+    </div>
+  </header>
+  <div id="cybersecurity">
+    <picture class="block aspect-4/3 lg:aspect-16/6">
+      <source media="(max-width: 767px)" srcset="assets/images/banner-768x576.jpg">
+      <img class="h-full w-full object-cover" src="assets/images/banner-1920x720.jpg"
+        alt="A padlock protected by a shield inside a blue data tunnel" width="1920" height="720" fetchpriority="high">
+    </picture>
+    <div class="relative mx-auto max-w-content-block xl:-mt-[135px]">
+      <div class="bg-surface-brand px-3 py-8 md:px-6 lg:px-9 xl:min-h-[135px]">
+        <p class="font-display font-medium text-text-invert text-[2.5rem] leading-tight md:text-[3.625rem] xl:text-[4.1875rem]">{{siteTitle}}</p>
+      </div>
+    </div>
+  </div>
+  <main id="main-content" tabindex="-1" class="page-shell py-16 md:py-20">
+    <article class="markdown-content mx-auto min-w-0 xl:w-[77.777778%]">
+      {{content}}
+    </article>
+  </main>
+  <footer class="bg-surface-brand text-text-invert">
+    <div class="page-shell pt-12 pb-7">
+      <div class="mb-6 flex justify-end">
+        <a class="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-border-secondary hover:bg-surface-accent-hover"
+          href="#top" aria-label="To the top of the page">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7.29 18.71 14l-1.42 1.41L12 10.12l-5.29 5.29L5.29 14z"/></svg>
+        </a>
+      </div>
+      <div class="flex flex-wrap items-center gap-8">
+        <span class="block w-[7.75rem] fill-draeger-white">{{logo}}</span>
+        <span class="max-w-[122px] font-display text-[21px] leading-tight">Technology for Life</span>
+      </div>
+      <div class="mt-6 flex flex-wrap justify-between gap-4 border-t border-border-secondary pt-6 text-base">
+        <p>&copy; {{copyright}}, {{year}}</p>
+        <nav aria-label="Legal" class="flex flex-wrap gap-x-4 gap-y-2">
+          {{legalLinks}}
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

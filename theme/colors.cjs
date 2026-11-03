@@ -1,0 +1,116 @@
+module.exports = {
+  border: {
+    accent: "#0078cc",
+    contrast: "#b4b9be",
+    primary: "#002766",
+    secondary: "#ffffff",
+    separator: "#e4e8eb",
+  },
+  charts: {
+    green: {
+      "700": "#00aa25",
+    },
+    red: {
+      "700": "#bc0000",
+    },
+  },
+  draeger: {
+    "air-blue": {
+      "250": "#0078cc",
+    },
+    backdrop: "rgba(205,210,215,.75)",
+    background: "var(--draeger-background)",
+    "cool-gray": {
+      "50": "#f9fafb",
+      "100": "#e4e8eb",
+      "150": "#cdd2d7",
+      "250": "#b4b9be",
+      "500": "#878c91",
+      "750": "#5a646e",
+    },
+    "dark-blue": {
+      "700": "#002766",
+      "900": "#000205",
+    },
+    "dark-gray": "#344351",
+    error: "#eb0000",
+    "field-disabled": "#f9fafb",
+    "light-blue": {
+      "150": "#cdebff",
+    },
+    "light-sand": {
+      "50": "#fafbf9",
+    },
+    "pale-blue": "#edf6fd",
+    "text-color": "var(--draeger-text-color)",
+    "warm-gray": {
+      "250": "#b4afaf",
+      "500": "#969191",
+      "750": "#6e6969",
+    },
+    white: "#ffffff",
+  },
+  error: {
+    "message-error": "#ffebed",
+  },
+  field: {
+    enabled: "#f9fafb",
+    hover: "#e4e8eb",
+    selected: "#e4e8eb",
+  },
+  icon: {
+    accent: "#0078cc",
+    disabled: "#b4b9be",
+    invert: "#ffffff",
+    primary: "#002766",
+    secondary: "#5a646e",
+  },
+  inherit: "inherit",
+  interactions: {
+    brand: "#002766",
+    "brand-active": "#0078cc",
+    "brand-disabled": "#b4b9be",
+    "brand-hover": "#0a51c2",
+    "brand-visited": "#0a51c2",
+    primary: "#0078cc",
+    "primary-active": "#00538f",
+    "primary-disabled": "#b4b9be",
+    "primary-hover": "#0060a3",
+    "primary-visited": "#0060a3",
+    secondary: "#ffffff",
+    "secondary-active": "#29b4ff",
+    "secondary-disabled": "#ffffff80",
+    "secondary-visited": "#ffffff",
+  },
+  miscellaneous: {
+    divider: "#b4b9be",
+  },
+  success: {
+    "default": "#00851d",
+    "message-success": "#d1ffdf",
+  },
+  surface: {
+    accent: "#0078cc",
+    "accent-click": "#00538f",
+    "accent-hover": "#0060a3",
+    brand: "#002766",
+    hover: "#fafbf9",
+    primary: "#ffffff",
+    secondary: "#f4f6f2",
+    tertiary: "#edf6fd",
+  },
+  text: {
+    accent: "#0078cc",
+    disabled: "#b4b9be",
+    error: "#eb0000",
+    invert: "#ffffff",
+    placeholder: "#878c91",
+    primary: "#002766",
+    secondary: "#5a646e",
+    success: "#00851d",
+  },
+  transparent: "transparent",
+  warning: {
+    "message-warning": "#fff8ed",
+  },
+};

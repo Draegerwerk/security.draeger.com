@@ -1,28 +1,58 @@
-name: Publish site
+name: Publish site and branch previews
 
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ['Build site']
+    types: [completed]
   workflow_dispatch:
+  delete:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-concurrency: github-pages
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'delete' && github.event.ref_type == 'branch') ||
+       (github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Use code from main only.
       - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+        id: pages
+      - name: Add live branch previews
+        run: node scripts/previews.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PAGES_URL: ${{ steps.pages.outputs.base_url }}
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
-      - uses: actions/deploy-pages@v4
+          path: _site
+      - name: Deploy GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v4

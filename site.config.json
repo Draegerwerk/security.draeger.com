@@ -1,0 +1,9 @@
+{
+  "title": "Dräger Product Security",
+  "language": "en",
+  "copyright": "Drägerwerk AG & Co. KGaA",
+  "legalLinks": [
+    { "title": "Data Protection", "url": "https://www.draeger.com/en_corp/Home/Data-Protection" },
+    { "title": "Provider Identification", "url": "https://www.draeger.com/en_corp/Home/Provider-Identification" }
+  ]
+}
